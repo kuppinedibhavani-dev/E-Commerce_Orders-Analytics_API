@@ -1,5 +1,7 @@
-const fs=require("fs");
-const readDB=()=>JSON.parse(fs.readFileSync("db.json","utf-8"));
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
+const dbPath=join(__dirname,"..","db.json");
+const readDB=()=>JSON.parse(readFileSync("db.path","utf-8"));
 const writeDB=(data)=>
-    fs.writeFileSync("db.json",JSON.stringify(data,null,2));
-module.exports={readDB,writeDB};
+    writeFileSync("db.path",JSON.stringify(data,null,2));
+export default{readDB,writeDB};
